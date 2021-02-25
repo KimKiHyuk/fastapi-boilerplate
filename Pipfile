@@ -7,8 +7,9 @@ name = "pypi"
 fastapi = "*"
 uvicorn = "*"
 requests = "*"
-dependency-injector = "*"
 fastapi-utils = "*"
+pymongo = "*"
+python-dotenv = "*"
 
 [dev-packages]
 pre-commit = "*"
@@ -18,4 +19,4 @@ pytest = "*"
 python_version = "3.9"
 
 [scripts]
-start = "uvicorn src.app:app --reload"
+start = "uvicorn src.app:app --port 8000 --reload"

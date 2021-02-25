@@ -1,6 +1,7 @@
-from ..initialize import TestService
+from fastapi.testclient import TestClient
+from ...app import app
 
-client = TestService()
+client = TestClient(app=app)
 
 
 def test_service_available():
