@@ -1,6 +1,6 @@
-from ..initialize import Test
+from ..initialize import TestService
 
-client = Test()
+client = TestService()
 
 
 def test_service_available():

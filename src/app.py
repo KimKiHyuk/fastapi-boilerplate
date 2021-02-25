@@ -2,6 +2,7 @@ from typing import Optional
 from fastapi import FastAPI
 
 from .router.status_router import router as status_router
+from .router.index_router import router as index_router
 
 
 def create_app() -> FastAPI:
@@ -9,11 +10,9 @@ def create_app() -> FastAPI:
     return app
 
 
-print("running")
-
-
 app = create_app()
 app.include_router(status_router)
+app.include_router(index_router)
 
 
 @app.on_event("startup")
