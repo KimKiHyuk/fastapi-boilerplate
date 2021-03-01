@@ -8,12 +8,16 @@ fastapi = "*"
 uvicorn = "*"
 requests = "*"
 fastapi-utils = "*"
-pymongo = "*"
 python-dotenv = "*"
+motor = "*"
+aioredis = "*"
+pytest-asyncio = "*"
+pytest-mock = "*"
 
 [dev-packages]
 pre-commit = "*"
 pytest = "*"
+asynctest = "*"
 
 [requires]
 python_version = "3.9"
