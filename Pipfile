@@ -12,6 +12,7 @@ python-dotenv = "*"
 motor = "*"
 aioredis = "*"
 bson = "*"
+pymongo = "*"
 
 [dev-packages]
 pre-commit = "*"
