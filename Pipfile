@@ -11,13 +11,12 @@ fastapi-utils = "*"
 python-dotenv = "*"
 motor = "*"
 aioredis = "*"
-pytest-asyncio = "*"
-pytest-mock = "*"
 
 [dev-packages]
 pre-commit = "*"
 pytest = "*"
-asynctest = "*"
+pytest-mock = "*"
+pytest-asyncio = "*"
 
 [requires]
 python_version = "3.9"
