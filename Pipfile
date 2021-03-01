@@ -9,10 +9,8 @@ uvicorn = "*"
 requests = "*"
 fastapi-utils = "*"
 python-dotenv = "*"
-motor = "*"
 aioredis = "*"
-bson = "*"
-pymongo = "*"
+motor = "*"
 
 [dev-packages]
 pre-commit = "*"

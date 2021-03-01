@@ -15,8 +15,9 @@ RUN jq -r '.default \
     pip install -r requirements.txt
 
 ENV DOT_ENV=test
-ENV PORT=8000
+ENV PORT="8000"
 ENV TZ=UTC
 
-CMD ["uvicorn", "src.app:app", "--port", ${PORT}, "--reload"]
+
+CMD ["sh", "-c",  "uvicorn src.app:app --host 0.0.0.0 --port ${PORT}"]
 
