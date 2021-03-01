@@ -1,24 +1,33 @@
 from fastapi import APIRouter, Depends, HTTPException
-from ..models.status_model import StatusModel
-from ..services.status_service import StatusService
 from fastapi_utils.cbv import cbv
-from ..dtos.status_dto import StatusOutDto
-from fastapi_utils.inferring_router import InferringRouter
+from src.dtos.status_dto import HealthStatusOutDto, StatusOutDto
+from src.models.status_model import StatusModel
+from src.services.status_service import StatusService
 
 router = APIRouter(
-    prefix="/status",
-    tags=["status", "system"],
+    tags=["status"],
     responses={404: {"description": "not found"}, 200: {"description": "ok"}},
 )
 
 
 @router.get(
-    "/",
-    tags=["index"],
+    "/me",
+    responses={200: {"description": "ok", "model": HealthStatusOutDto}},
+)
+async def index(
+    status_service: StatusService = Depends(StatusService),
+) -> HealthStatusOutDto:
+    health_status = await status_service.health_check()
+
+    return HealthStatusOutDto(**health_status)
+
+
+@router.get(
+    "/gpu",
     responses={512: {"description": "my error"}},
     response_model=StatusOutDto,
 )
-async def proper_name_for_explanation(
+async def get_gpu_status(
     status_service: StatusService = Depends(StatusService),
 ) -> StatusOutDto:
     from_db = await status_service.check_alive(15)

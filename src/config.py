@@ -1,0 +1,14 @@
+"""
+DEFAULT KEYWORD
+"""
+DEFAULT = "default"
+"""
+DATABASE KEYWORD
+"""
+DB_DEVELOPMENT = "development"
+
+
+"""
+COLLECTION KEYWORD
+"""
+COLLECTION_STATUS = "status"

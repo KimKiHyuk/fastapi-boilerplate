@@ -1,7 +1,22 @@
 from typing import Optional
-from pydantic import BaseModel
+from bson import ObjectId
+from pydantic import BaseModel, Field
+from src.models.base_model import PyObjectId
 
 
+class HealthStatusModel(BaseModel):
+    _id: Optional[PyObjectId] = Field(alias="_id")
+    service_name: str = ...
+    ip: str = ...
+    alive: bool = ...
+    version: int = ...
+
+    class Config:
+        arbitrary_types_allowed = True
+        json_encoders = {ObjectId: str}
+
+
+# for neural works
 class StatusModel:
     id: int
     os: str
