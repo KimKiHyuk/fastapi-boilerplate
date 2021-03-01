@@ -11,6 +11,7 @@ fastapi-utils = "*"
 python-dotenv = "*"
 motor = "*"
 aioredis = "*"
+bson = "*"
 
 [dev-packages]
 pre-commit = "*"
