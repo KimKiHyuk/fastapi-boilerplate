@@ -7,8 +7,12 @@ services:
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: example
+    ports: 
+      - 27017:27017
   master:
     image: redis:latest
+    ports:
+      - 6379:6379
   slave:
     image: redis:latest
     command: redis-server --slaveof redis-master 6379
