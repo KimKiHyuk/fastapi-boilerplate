@@ -17,13 +17,17 @@ def get_connection() -> Redis:
 
 
 async def connect_redis(connect_string: str):
+    if not connect_string:
+        raise Exception("redis no connection")
+
     logger.info("connect redis")
     db.client = await create_redis_pool(connect_string)
 
 
 async def disconnect_redis():
     logger.info("disconnect redis")
-    await db.client.close()
+    if db.client:
+        await db.client.close()
 
 
 # >>> pool = redis.ConnectionPool(host='localhost', port=6379, db=0)

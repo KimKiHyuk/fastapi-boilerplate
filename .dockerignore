@@ -1,0 +1,8 @@
+.pre-commit-config.yaml
+.flake8
+.*.toml
+.vscode
+.github
+**/__pycache__/
+.pytest_cache
+*.toml

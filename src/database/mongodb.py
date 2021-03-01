@@ -22,10 +22,13 @@ def get_connection() -> AsyncIOMotorClient:
 async def connect_mongo(
     connect_string: str, max_pool_size: int = 10, min_pool_size: int = 1
 ):
+    if not connect_string:
+        raise Exception("mongodb no connection")
     db.client = AsyncIOMotorClient(
         connect_string, maxPoolSize=max_pool_size, minPoolSize=min_pool_size
     )
 
 
 async def disconnect_mongo():
-    await db.client.close()
+    if db.client:
+        await db.client.close()

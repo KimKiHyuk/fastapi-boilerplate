@@ -17,7 +17,7 @@ docs_build
 venv
 docs.zip
 archive.zip
-requirements.txt
+*.requirements.txt
 # vim temporary files
 *~
 .*.sw?

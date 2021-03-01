@@ -27,8 +27,14 @@ app.include_router(status_router, prefix="/api/status")
 
 @app.on_event("startup")
 async def on_app_start():
-    await connect_mongo(os.getenv("MONGO_CONNECTION_URL"))
-    await connect_redis(os.getenv("REDIS_CONNECTION_URL"))
+    mongo_conn_url = os.getenv("MONGO_CONNECTION_URL")
+    redis_conn_url = os.getenv("REDIS_CONNECTION_URL")
+
+    if mongo_conn_url:
+        await connect_mongo(mongo_conn_url)
+
+    if redis_conn_url:
+        await connect_redis(redis_conn_url)
 
 
 @app.on_event("shutdown")
