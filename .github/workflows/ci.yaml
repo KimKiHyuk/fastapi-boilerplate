@@ -9,19 +9,32 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python: [3.9]
 
-    container:
-      image: python
+    # services:
+    #   redis:
+    #     image: redis
+    #     options: >-
+    #       --health-cmd "redis-cli ping"
+    #       --health-interval 10s
+    #       --health-timeout 5s
+    #       --health-retries 5
 
     steps:
       - uses: actions/checkout@v2
       - name: Set up Python 3.9
         uses: actions/setup-python@v2
         with:
-          python-version: 3.9
+          python-version: ${{ matrix.python }}
       - name: Install dependencies
         run: |
-          pipenv install
+          jq -r '.default
+          | to_entries[]
+          | .key + .value.version' \
+          Pipfile.lock > requirements.txt     
+          pip install -r requirements.txt
       - name: Run tests
         run: |
           echo "done"
