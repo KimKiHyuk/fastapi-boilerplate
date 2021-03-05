@@ -8,7 +8,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-16.04
+    runs-on: ubuntu-18.04
     strategy:
       matrix:
         python: [3.9]
@@ -32,5 +32,5 @@ jobs:
           pip install -r develop.requirements.txt
       - name: Run tests
         run: |
-          pytest
+          pytest -s
 

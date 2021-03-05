@@ -23,5 +23,5 @@ ENV DOT_ENV=test
 ENV TZ=UTC
 
 
-CMD ["sh", "-c",  "pytest"]
+CMD ["sh", "-c",  "pytest -s"]
 
