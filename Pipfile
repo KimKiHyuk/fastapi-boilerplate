@@ -17,6 +17,7 @@ pre-commit = "*"
 pytest = "*"
 pytest-mock = "*"
 pytest-asyncio = "*"
+flake8 = "*"
 
 [requires]
 python_version = "3.9"
