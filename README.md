@@ -4,6 +4,7 @@ python framework fastapi boilerplate
 ## Feature
 * controller - service - repo 구조
 * Dto 지원
+* Flake8 && Black Pre-commit 
 
 ## how to setup
 1. brew install pipenv
