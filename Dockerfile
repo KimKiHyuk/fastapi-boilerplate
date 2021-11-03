@@ -3,10 +3,9 @@ FROM python:3.9-alpine3.13
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 
-COPY . ./
-
 RUN apk add gcc jq libc-dev
 
+COPY . ./
 
 RUN jq -r '.default \
     | to_entries[]  \
